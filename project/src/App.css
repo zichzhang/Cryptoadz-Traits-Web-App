@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+.navbar {
+  padding: 0;
+  padding-right: 2.5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li {
+  display: inline-block; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  color: #000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo {
+  padding:1rem;
+  margin-left: 4rem;
+}
+
+.navbar-item {
+  padding:1rem;
+  float: right;
+}
+
+.header {
+  padding: 2.0rem;
+  padding-left: 4.5rem;
+}
+
+.pre-title {
+  font-family: "Londrina Solid";
+}
+
+.title {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Londrina Solid";
+}
+
+.description {
+  font-family: "Times New Roman";
+}
+
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.col-lg-3 {
+  background-color: #fff;
+  border-radius: 3px;
+  margin-left: 3.5rem;
+  padding: 1.0rem;
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.col-lg-9 {
+  border: solid 1px #000;
+  padding-right: 3.5rem;
+  padding-left: 1.5rem;
+  flex: 4;
+}
+
+.select-dropdown {
+  background-color: #f7f8fa;
+}
+
+.select-dropdown-title {
+  margin-bottom: 0.25rem;
+}
+
+.wrapper-select-dropdown {
+  margin-bottom: 1.0rem;
+}
+
+.select-button {
+  background-color: #8800C7;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 18px;
+  height: 40px;
+  width: 100%;
+  transition-duration: 250ms;
+  cursor:pointer;
+}
+
+.select-button:hover {
+  background-color: #f9e8fd;
+  color:#8800C7;
 }

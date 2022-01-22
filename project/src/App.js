@@ -34,7 +34,6 @@ const options = [
 const App = () => {
 
   const [currentTime, setCurrentTime] = useState(0);
-
   useEffect(() => {
     fetch('/api/time').then(res => 
       res.json()).then(data => {
@@ -42,64 +41,45 @@ const App = () => {
     });
   }, []); 
 
-  const [traits, setTraits] = useState({});
+  //const [traits, setTraits] = useState({});
+  const [accessoryIOptions, setAccessoryIOptions] = useState({});
+  const [accessoryIIOptions, setAccessoryIIOptions] = useState({});
+  const [backgroundOptions, setBackgroundOptions] = useState({});
+  const [bodyOptions, setBodyOptions] = useState({});
+  const [clothesOptions, setClothesOptions] = useState({});
+  const [customOptions, setCustomOptions] = useState({});
+  const [eyesOptions, setEyesOptions] = useState({});
+  const [headOptions, setHeadOptions] = useState({});
+  const [mouthOptions, setMouthOptions] = useState({});
+  const [nameOptions, setNameOptions] = useState({});
 
   useEffect(() => {
     fetch('/api/traits').then(res => 
       res.json()).then(data => {
-        setTraits(data);
+
+        const traitKeys = Object.keys(data);
+        const traitOptions = [];
+        for (const traitKey of traitKeys) {
+          let temp = Object.keys(data[traitKey]);
+          let tempOptions = temp.map(item => {
+            return { value: item, label: item };
+          });
+          traitOptions.push(tempOptions);
+        } 
+        
+        // set all trait options state
+        setAccessoryIOptions(traitOptions[0]);
+        setAccessoryIIOptions(traitOptions[1]);
+        setBackgroundOptions(traitOptions[2]);
+        setBodyOptions(traitOptions[3]);
+        setClothesOptions(traitOptions[4]);
+        setCustomOptions(traitOptions[5]);
+        setEyesOptions(traitOptions[6]);
+        setHeadOptions(traitOptions[7]);
+        setMouthOptions(traitOptions[8]);
+        setNameOptions(traitOptions[9]);
     });
   }, []);
-
-  const accessoryI = Object.keys(traits['Accessory I']);
-  const accessoryIOptions = accessoryI.map(item => {
-    return { value: item, label: item };
-  });
-
-  const accessoryII = Object.keys(traits['Accessory II']);
-  const accessoryIIOptions = accessoryII.map(item => {
-    return { value: item, label: item };
-  });
-
-  const background = Object.keys(traits['Background']);
-  const backgroundOptions = background.map(item => {
-    return { value: item, label: item };
-  });
-
-  const body = Object.keys(traits['Body']);
-  const bodyOptions = body.map(item => {
-    return { value: item, label: item };
-  });
-
-  const clothes = Object.keys(traits['Clothes']);
-  const clothesOptions = clothes.map(item => {
-    return { value: item, label: item };
-  });
-
-  const custom = Object.keys(traits['Custom']);
-  const customOptions = custom.map(item => {
-    return { value: item, label: item };
-  });
-
-  const eyes = Object.keys(traits['Eyes']);
-  const eyesOptions = eyes.map(item => {
-    return { value: item, label: item };
-  });
-
-  const head = Object.keys(traits['Head']);
-  const headOptions = head.map(item => {
-    return { value: item, label: item };
-  });
-
-  const mouth = Object.keys(traits['Mouth']);
-  const mouthOptions = mouth.map(item => {
-    return { value: item, label: item };
-  });
-
-  const name = Object.keys(traits['Name']);
-  const nameOptions = name.map(item => {
-    return { value: item, label: item };
-  });
 
   return (
     <React.Fragment>
